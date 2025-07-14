@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/menuProduct">
+
+    <fragment
+        android:id="@+id/menuProduct"
+        android:name="com.example.prm392_shopping_project.fragment.ProductFragment"
+        android:label="Product"
+        tools:layout="@layout/fragment_product"/>
+
+    <fragment
+        android:id="@+id/menuCategory"
+        android:name="com.example.prm392_shopping_project.fragment.CategoryFragment"
+        android:label="Category"
+        tools:layout="@layout/fragment_category"/>
+
+    <fragment
+        android:id="@+id/menuTotalOrder"
+        android:name="com.example.prm392_shopping_project.fragment.OrderFragment"
+        android:label="Total Order"
+        tools:layout="@layout/fragment_total_order"/>
+</navigation>
