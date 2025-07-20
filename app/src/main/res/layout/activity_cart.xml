@@ -4,78 +4,157 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8F9FA"
     tools:context=".CartActivity">
 
+    <!-- Custom Toolbar -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toolbar_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="0dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/cart_empty"
+        <Toolbar
+            android:id="@+id/toobar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"
+            android:elevation="0dp"
+            android:title="Shopping Cart"
+            android:titleTextColor="#2C3E50"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Title" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Empty Cart Message -->
+    <LinearLayout
+        android:id="@+id/empty_cart_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Giỏ hàng trống"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Toolbar
-        android:id="@+id/toobar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#F5F5F5"
-        android:title="Shopping Cart" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cart_rv"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/line_total"
-        app:layout_constraintTop_toBottomOf="@+id/toobar" />
-
-
-    <LinearLayout
-        android:id="@+id/line_total"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintBottom_toTopOf="@id/btnmuahang">
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="16dp"
+            android:alpha="0.6"
+            android:src="@drawable/ic_cart_black"
+            app:tint="#BDBDBD" />
 
         <TextView
+            android:id="@+id/cart_empty"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:text="Total amount: "
-            android:textColor="#000"
-            android:textSize="18sp"
+            android:gravity="center"
+            android:text="Giỏ hàng trống"
+            android:textColor="#757575"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/total_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="0000000"
-            android:textColor="#000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Hãy thêm sản phẩm vào giỏ hàng"
+            android:textColor="#9E9E9E"
+            android:textSize="14sp" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnmuahang"
-        android:layout_marginBottom="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Purchase"
-        app:layout_constraintBottom_toBottomOf="parent" />
+    <!-- Cart Items RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_rv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/checkout_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_card" />
 
+    <!-- Checkout Container -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/checkout_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Total Amount Section -->
+            <LinearLayout
+                android:id="@+id/line_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total amount:"
+                    android:textColor="#2C3E50"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$0.00"
+                    android:textColor="#E91E63"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="#E0E0E0" />
+
+            <!-- Purchase Button -->
+            <Button
+                android:id="@+id/btnmuahang"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:elevation="2dp"
+                android:text="Purchase"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

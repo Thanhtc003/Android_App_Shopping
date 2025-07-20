@@ -4,193 +4,255 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8F9FA"
     tools:context=".MainActivity">
+
+    <!-- Header Section -->
+    <View
+        android:id="@+id/header_background"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="#FF6B35"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/open_sans_bold"
         android:text="StackShop"
-        android:textColor="@android:color/background_dark"
-        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        android:elevation="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:elevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="1sp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/cart_main"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/setting_main"
-            app:layout_constraintEnd_toStartOf="@+id/setting_main"
-            app:layout_constraintTop_toTopOf="@+id/setting_main"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:tint="@android:color/white"
             app:srcCompat="@drawable/ic_cart_black" />
 
         <com.nex3z.notificationbadge.NotificationBadge
             android:id="@+id/badge_main"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_gravity="top|right"
+            android:layout_marginTop="-2dp"
+            android:layout_marginEnd="-2dp"
             app:nbMaxTextLength="2" />
     </FrameLayout>
 
-
-<!--    <ImageView-->
-<!--        android:id="@+id/setting_main"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/textView"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/textView"-->
-<!--        app:srcCompat="@drawable/ic_account_settings" />-->
-    <!-- Thay bằng icon logout của bạn -->
-    <!-- Thay bằng icon logout của bạn -->
-
-
     <ImageView
         android:id="@+id/logout_main"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Logout"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        android:elevation="2dp"
+        android:padding="4dp"
+        android:tint="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logout" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="406dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/open_sans"
-        android:lineSpacingExtra="4dp"
-        android:text="Mua sắm qua ứng dụng của cửa hàng siêu thị trực tuyến để được ưu đãi tốt nhất."
-        android:textColor="#717171"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/discountedRecycler"
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/open_sans_semibold"
-        android:text="Special Offers"
-        android:textColor="@android:color/background_dark"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/open_sans_semibold"
-        android:text="Product Type"
-        android:textColor="@android:color/background_dark"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discountedRecycler" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoryRecycler"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="16dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/header_background">
 
-    <TextView
-        android:id="@+id/allCategoryImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/open_sans_semibold"
-        android:text="See more"
-        android:textColor="#448AFF"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/open_sans_semibold"
-        android:text="Best selling products"
-        android:textColor="@android:color/background_dark"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryRecycler" />
+            <!-- Welcome Message Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/welcome_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recently_item"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:lineSpacingExtra="4dp"
+                    android:padding="20dp"
+                    android:text="Mua sắm qua ứng dụng của cửa hàng siêu thị trực tuyến để được ưu đãi tốt nhất."
+                    android:textColor="#555555"
+                    android:textSize="15sp" />
+            </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tv_product"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/open_sans_semibold"
-        android:text="See more"
-        android:textColor="#448AFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            <!-- Special Offers Section -->
+            <LinearLayout
+                android:id="@+id/special_offers_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_card">
 
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="Special Offers"
+                    android:textColor="#2C3E50"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:padding="8dp"
+                    android:text="See more"
+                    android:textColor="#FF6B35" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/discountedRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/special_offers_header" />
+
+            <!-- Product Type Section -->
+            <LinearLayout
+                android:id="@+id/product_type_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/discountedRecycler">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="Product Type"
+                    android:textColor="#2C3E50"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/allCategoryImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:padding="8dp"
+                    android:text="See more"
+                    android:textColor="#FF6B35" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecycler"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="12dp"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_type_header" />
+
+            <!-- Best Selling Section -->
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/open_sans_semibold"
+                android:text="Best selling products"
+                android:textColor="#2C3E50"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categoryRecycler" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recently_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="?android:attr/windowBackground"
-        android:layout_gravity="bottom"
-        android:paddingTop="8dp"
+        android:background="@android:color/white"
+        android:elevation="8dp"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
-        app:menu="@menu/navigation_bottom_menu"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        app:menu="@menu/navigation_bottom_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

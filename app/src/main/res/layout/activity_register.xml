@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
-    tools:context=".Login">
+    tools:context=".RegisterActivity">
 
-    <!-- Background Ellipse -->
+    <!-- Background Ellipse (reused from Login) -->
     <ImageView
-        android:id="@+id/elip_login"
+        android:id="@+id/elip_register"
         android:layout_width="784dp"
         android:layout_height="451dp"
         android:layout_marginTop="-180dp"
@@ -23,12 +23,12 @@
         android:scaleType="fitXY"
         android:contentDescription="Background Ellipse" />
 
-    <!-- Login Title -->
+    <!-- Register Title -->
     <TextView
-        android:id="@+id/log_in"
+        android:id="@+id/register_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Register"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="32sp"
@@ -36,32 +36,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/elip_login" />
+        app:layout_constraintTop_toBottomOf="@+id/elip_register" />
 
-    <!-- Phone Input Field -->
+    <!-- Full Name Input Field -->
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/editTextFullName"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginTop="32dp"
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
         android:ems="10"
-        android:hint="Phone"
+        android:hint="Full Name"
         android:drawableStart="@drawable/ic_person"
         android:drawablePadding="12dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:inputType="phone"
+        android:inputType="textPersonName"
         android:textColorHint="#999999"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/log_in" />
+        app:layout_constraintTop_toBottomOf="@+id/register_title" />
 
     <!-- Password Input Field -->
     <EditText
-        android:id="@+id/editTextNumberPassword"
+        android:id="@+id/editTextPasswordRegister"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginTop="24dp"
@@ -78,47 +78,58 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextFullName" /> <!-- Changed constraint -->
 
-    <!-- Login Button -->
+    <!-- Confirm Password Input Field -->
+    <EditText
+        android:id="@+id/editTextConfirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:drawableStart="@drawable/ic_info"
+        android:drawablePadding="12dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:inputType="textPassword"
+        android:textColorHint="#999999"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordRegister" />
+
+    <!-- Register Button -->
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_register"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginTop="48dp"
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
-        android:text="Login"
+        android:text="Register"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword" />
 
-    <!-- Register Link -->
+    <!-- Login Link -->
     <TextView
-        android:id="@+id/textViewRegister"
+        android:id="@+id/textViewLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Don't have an account? Register"
+        android:text="Already have an account? Login"
         android:textColor="#4A00E0"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_login" />
-
-    <!-- Placeholder FrameLayout (preserved) -->
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button_register" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

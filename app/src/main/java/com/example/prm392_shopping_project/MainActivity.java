@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.nav_cart:
                     startActivity(new Intent(this, CartActivity.class));
                     return true;
-                case R.id.nav_logout:
-                    showLogoutDialog();
+                case R.id.nav_profile:
+                    startActivity(new Intent(this, ProfileActivity.class));
                     return true;
             }
             return false;

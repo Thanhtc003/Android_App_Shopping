@@ -33,10 +33,16 @@
             android:name=".Add_Product"
             android:exported="false" />
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".UDProductActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".BuyConfirm"

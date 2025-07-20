@@ -133,4 +133,20 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
             return false;
         }
     }
+
+    public Account getByEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + ACCOUNT_TABLE + " WHERE email = ?", new String[]{email});
+        Account account = null;
+        if (cursor.moveToFirst()) {
+            String accountEmail = cursor.getString(0);
+            int password = cursor.getInt(1);
+            Date createdAt = Date.valueOf(cursor.getString(2));
+            boolean isAdmin = cursor.getInt(3) == 1;
+            account = new Account(accountEmail, password, createdAt, isAdmin);
+        }
+        cursor.close();
+        db.close();
+        return account;
+    }
 }

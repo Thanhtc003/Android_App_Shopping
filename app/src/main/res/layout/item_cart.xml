@@ -2,92 +2,140 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:layout_margin="5dp"
-    android:elevation="8dp"
-    app:cardCornerRadius="4dp">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="6dp"
+    android:elevation="4dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="12dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        >
-        <ImageView
-            android:id="@+id/item_giohang_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop" />
+        android:padding="12dp">
 
+        <!-- Product Image -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp">
+
+            <ImageView
+                android:id="@+id/item_giohang_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Product Details -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
+            <!-- Product Name -->
             <TextView
                 android:id="@+id/item_giohang_tensp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:text="Product Name"
-                android:textSize="18sp"
+                android:textColor="#2C3E50"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <!-- Price -->
+            <TextView
+                android:id="@+id/item_giohang_gia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="$15.00"
+                android:textColor="#E91E63"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- Quantity Controls and Total -->
             <LinearLayout
-                android:weightSum="18"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_weight="3"
-                    android:id="@+id/item_giohang_gia"
+                <!-- Quantity Controls -->
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="15000"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="15sp" />
-                <ImageView
-                    android:id="@+id/item_giohang_tru"
+                    android:background="#F5F5F5"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <ImageView
+                        android:id="@+id/item_giohang_tru"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_baseline_remove_24"
+                        app:tint="#757575" />
+
+                    <TextView
+                        android:id="@+id/item_giohang_soluong"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="#2C3E50"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/item_giohang_cong"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_baseline_add_24"
+                        app:tint="#4CAF50" />
+                </LinearLayout>
+
+                <!-- Spacer -->
+                <View
                     android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_remove_24" />
-                <TextView
-                    android:id="@+id/item_giohang_soluong"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:layout_weight="3"
-                    android:text="1"
-                    android:gravity="center"
-                    android:textStyle="bold" />
-                <ImageView
-                    android:id="@+id/item_giohang_cong"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_add_24" />
-                <ImageView
-                    android:id="@+id/item_giohang_bang"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_drag_handle_24" />
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <!-- Total Price -->
                 <TextView
                     android:id="@+id/item_giohang_giasp2"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="250000 đ"
+                    android:text="$250.00"
+                    android:textColor="#2C3E50"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
+
+                <!-- Delete/Remove Button -->
+                <ImageView
+                    android:id="@+id/item_giohang_bang"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_baseline_drag_handle_24"
+                    app:tint="#9E9E9E" />
             </LinearLayout>
-
-
         </LinearLayout>
-
     </LinearLayout>
-
-
 </androidx.cardview.widget.CardView>
